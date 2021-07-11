@@ -1,0 +1,57 @@
+#!/bin/bash
+
+clear
+echo "SPinfo\\\\\\\\\\\\\\\\\\\\\\\\\\\\"
+echo "silahkan pilih sistem operasi anda"
+read -p "[android]  |  [linux]
+>>" spinput;
+case $spinput in
+
+android)
+   apt install sox -y
+
+  clear
+  play toolstart.mp3
+  apt install neofetch -y
+  clear
+
+alias del=rm
+  alias move=mv 
+  alias systeminfo=uname
+
+  {
+      for ((i = 10 ; i <= 100 ; i+=20)); do
+        sleep 1
+        echo $i
+      done
+  } | whiptail --gauge "Mendapatkan informasi..." 6 60 1
+
+
+  clear
+  neofetch
+
+play toolsend.mp3
+
+;;
+
+linux)
+
+  
+  clear
+  alias del=rm
+  alias move=mv 
+  alias systeminfo=uname
+
+  {
+      for ((i = 10 ; i <= 150 ; i+=20)); do
+        sleep 1
+        echo $i
+      done
+  } | whiptail --gauge "Mendapatkan informasi..." 6 60 1
+
+
+  sudo lshw
+
+;;
+
+esac
