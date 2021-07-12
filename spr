@@ -3,7 +3,7 @@
 clear
 echo "SPinfo\\\\\\\\\\\\\\\\\\\\\\\\\\\\"
 echo "silahkan pilih sistem operasi anda"
-read -p "[android]  |  [linux]
+read -p "[android]  |  [linux]  |   [update]
 >>" spinput;
 case $spinput in
 
@@ -36,7 +36,8 @@ play toolsend.mp3
 
 linux)
 
-  
+  apt install vlc
+  nvlc *toolstart.mp3
   clear
   alias del=rm
   alias move=mv 
@@ -54,4 +55,20 @@ linux)
 
 ;;
 
+update)
+
+     echo "updating..."
+     cd
+     git clone https://github.com/afri64/sp/
+     cd
+     cd sp
+
+     {
+      for ((i = 10 ; i <= 100 ; i+=15)); do
+        sleep 1
+        echo $i
+      done
+  } | whiptail --gauge "Menginstall update..." 6 60 1
+     
+    bash spr
 esac
